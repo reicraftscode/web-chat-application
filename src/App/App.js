@@ -1,21 +1,12 @@
 import style from "./App.module.scss";
+import React from "react";
 import Randomizer from "./Randomizer";
+import Header from "../Header/Header";
 const App = () => {
 	let username = Randomizer().join("");
 	return (
 		<div>
-			{/* Logo wrapper div */}
-			<div className={`bg-dark ${style.logoWrapper}`}>
-				<div className={`${style.logoIconTextWrapper}`}>
-					<img
-						className={style.beeIcon}
-						alt="bee icon"
-						src="./assets/photos/bee.svg"
-					></img>
-					<h3 className={style.beeText}>ChatBee</h3>
-				</div>
-			</div>
-			{/* End logo wrapper div */}
+			<Header />
 			{/* Start dashboard content */}
 			<div className={style.content}>
 				<p className={style.welcomeText}>Welcome to ChatBee</p>
