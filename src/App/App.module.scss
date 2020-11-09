@@ -1,0 +1,75 @@
+%logo-wrapper {
+	height: 200px;
+	display: flex;
+	justify-content: flex-start;
+}
+%bee-icon {
+	width: 160px;
+}
+%logo-icon-text {
+	margin-left: 80px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+%bee-text {
+	color: #efc277;
+	font-weight: 600;
+	margin-left: 25px;
+	font-size: 2.5em;
+	margin-top: 10px;
+}
+%content {
+	background-color: #f2f2f2;
+	min-height: 800px;
+	text-align: center;
+	padding: 30px;
+	justify-content: center;
+	align-items: center;
+}
+%welcome-text {
+	font-weight: 600;
+	font-size: 3em;
+	margin-bottom: 100px;
+}
+%beehive-pic {
+	width: 400px;
+	margin-right: 100px;
+}
+
+.logoWrapper {
+	@extend %logo-wrapper;
+}
+.beeIcon {
+	@extend %bee-icon;
+}
+.logoIconTextWrapper {
+	@extend %logo-icon-text;
+}
+.beeText {
+	@extend %bee-text;
+}
+.content {
+	@extend %content;
+}
+.welcomeText {
+	@extend %welcome-text;
+}
+.beehivePic {
+	@extend %beehive-pic;
+}
+.custom-file-label {
+	width: 50%;
+	flex-wrap: nowrap;
+}
+.hiveButton {
+	width: 200px;
+	height: 45px;
+	border-radius: 8px;
+	font-size: 1.5em;
+	font-weight: 300;
+}
+.chats {
+	margin-top: 100px;
+}
