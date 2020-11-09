@@ -1,0 +1,37 @@
+%logo-wrapper {
+	height: 200px;
+	display: flex;
+	justify-content: flex-start;
+}
+%bee-icon {
+	width: 160px;
+}
+%logo-icon-text {
+	margin-left: 80px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+%bee-text {
+	color: #efc277;
+	font-weight: 600;
+	margin-left: 25px;
+	font-size: 2.5em;
+	margin-top: 10px;
+}
+
+.logoWrapper {
+	@extend %logo-wrapper;
+}
+.logoIconTextWrapper {
+	@extend %logo-icon-text;
+}
+.beeIcon {
+	@extend %bee-icon;
+}
+
+.beeText {
+	@extend %bee-text;
+}
