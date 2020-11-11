@@ -25,5 +25,5 @@ ReactDOM.render(
 	</React.StrictMode>,
 	document.getElementById("root")
 );
-
+// This monitors the speed and etc.
 reportWebVitals(console.log);
