@@ -1,0 +1,7 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend for chatbee",
+  "main": "server.js",
+  "license": "MIT"
+}
