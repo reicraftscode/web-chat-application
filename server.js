@@ -1,59 +1,40 @@
-const { Socket } = require("socket.io");
+const express = require("express");
+const PORT = 3000;
+const app = require("express")();
+const http = require("http").createServer(app);
+const io = require("socket.io")(http, {
+	cors: {
+		origin: "http://localhost:3001",
+		// methods: ["GET", "POST"],
+		// allowedHeaders: ["my-custom-header"],
+		// credentials: true,
+	},
+	transports: ["websocket", "polling"],
+});
+let loggedUsers = [];
 
-const server = require("http").createServer();
-const options = {
-	cors: true,
-	origins: ["http://localhost:3001"],
-};
-const io = require("socket.io")(server, options);
-
-// io.on("connection", (socket) => {
-// 	console.log(`Connected: ${socket.id}`);
-// 	socket.on("disconnect", () => console.log(`Disconnected: ${socket.id}`));
-// 	socket.on("join", (room) => {
-// 		console.log(`Socket ${socket.id} joining ${room}`);
-// 		socket.join(room);
-// 	});
-// 	socket.on("chat", (data) => {
-// 		const { message, room } = data;
-// 		console.log(`msg: ${message}, room: ${room}`);
-// 		io.to(room).emit("chat", message);
-// 	});
-// });
-try {
-	const users = {};
-	io.on("connection", (client) => {
-		client.on("username", (username) => {
-			console.log(username + " has logged in");
-			client.broadcast.emit("broadcast", `${username} has connected`);
-			const user = {
-				name: username,
-				id: client.id,
-			};
-			users[client.id] = user;
-			io.emit("connected", user);
-			io.emit("users", Object.values(users));
-		});
-
-		client.on("send", (message) => {
-			io.emit("message", {
-				text: message,
-				date: new Date().toISOString(),
-				user: users[client.id],
-			});
-		});
-
-		client.on("disconnect", () => {
-			const username = users[client.id];
-			if (username != undefined) {
-				console.log(username.name + " has logged out");
-				client.broadcast.emit("broadcast", `${username.name} has disconnected`);
+const STATIC_CHANNELS = ["global_notifications", "global_chat"];
+io.on("connection", (socket) => {
+	//prompt someone connected
+	console.log("new client connected");
+	//listen to disconnected clients
+	socket.on("disconnect", () => {
+		console.log("client disconnected");
+		loggedUsers = loggedUsers.filter((data) => {
+			if (data.socketid != socket.id) {
+				return data;
 			}
-			delete users[client.id];
-			io.emit("disconnected", client.id);
 		});
+		socket.emit("onlineusers", loggedUsers);
 	});
-} catch (err) {
-	console.error(err);
-}
-server.listen(3000);
+	//emit a message once a user connected
+	socket.on("login", (data) => {
+		console.log(data.username + " has logged in ");
+		loggedUsers.push(data);
+		io.emit("onlineusers", loggedUsers);
+	});
+});
+
+http.listen(PORT, () => {
+	console.log("server running on " + PORT);
+});
