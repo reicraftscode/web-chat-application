@@ -2,7 +2,7 @@
  * @description automatically generate
  */
 const Randomizer = () => {
-	const isCharOrInt = Math.floor(Math.random() * 1);
+	const isCharOrInt = Math.floor(Math.random() * 2);
 	const length = 4;
 	const finalUserName = [];
 
@@ -14,7 +14,7 @@ const Randomizer = () => {
 		return random;
 	};
 	const numberGenerator = () => {
-		const random = Math.random() * 10;
+		const random = Math.floor(Math.random() * 10);
 		return random;
 	};
 
