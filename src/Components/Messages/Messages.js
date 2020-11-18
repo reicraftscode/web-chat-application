@@ -33,9 +33,9 @@ const Messages = ({ username }) => {
 								{message.data.username === username
 									? "You:"
 									: message.data.username + ":"}
-								{message.data.message}
-								<br />
-								{message.data.time}
+								<p>
+									{message.data.message} on {message.data.time}
+								</p>
 							</p>
 						</>
 					);
