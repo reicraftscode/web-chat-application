@@ -60,7 +60,7 @@ const App = () => {
 				style={isLoggedIn ? { display: "block" } : { display: "none" }}
 				className="mt-5 container-fluid"
 			>
-				<Chats username={username} />
+				<Chats username={username} isLoggedIn={isLoggedIn} />
 			</div>
 		</div>
 	);
