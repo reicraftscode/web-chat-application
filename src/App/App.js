@@ -16,7 +16,7 @@ const App = () => {
 				{/* Start dashboard content */}
 				<div className={style.content}>
 					<p className={style.welcomeText}>Welcome to ChatBee</p>
-					<div className="d-flex justify-content-center">
+					<div className={`${style.contentWrapper} justify-content-center`}>
 						<img
 							alt="bee hive"
 							className={style.beehivePic}
@@ -58,7 +58,7 @@ const App = () => {
 			</div>
 			<div
 				style={isLoggedIn ? { display: "block" } : { display: "none" }}
-				className="mt-5 ml-5"
+				className="mt-5 container-fluid"
 			>
 				<Chats username={username} />
 			</div>

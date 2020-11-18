@@ -6,36 +6,127 @@
 	justify-content: center;
 	align-items: center;
 }
-%welcome-text {
-	font-weight: 600;
-	font-size: 3em;
-	margin-bottom: 100px;
-}
-%beehive-pic {
-	width: 400px;
-	margin-right: 100px;
+$content-background-color: #f2f2f2;
+$content-min-height: 800px;
+$content-text-align: center;
+$content-padding: 30px;
+$content-justify-content: center;
+$content-align-items: center;
+
+$welcome-text-font-weight: 600;
+$welcome-text-font-size: 3em;
+$welcome-text-margin-bottom: 100px;
+
+$beehive-pic-width: 400px;
+$beehive-pic-margin-right: 100px;
+
+@media screen and (min-width: 1024px) {
+	.content {
+		background-color: $content-background-color;
+		min-height: $content-min-height;
+		text-align: $content-text-align;
+		padding: $content-padding;
+		justify-content: $content-justify-content;
+		align-items: $content-align-items;
+	}
+	.contentWrapper {
+		display: flex;
+	}
+	.welcomeText {
+		font-weight: $welcome-text-font-weight;
+		font-size: $welcome-text-font-size;
+		margin-bottom: $welcome-text-margin-bottom;
+	}
+	.beehivePic {
+		width: $beehive-pic-width;
+		margin-right: $beehive-pic-margin-right;
+	}
+	.custom-file-label {
+		width: 50%;
+		flex-wrap: nowrap;
+	}
+	.hiveButton {
+		width: 200px;
+		height: 45px;
+		border-radius: 8px;
+		font-size: 1.5em;
+		font-weight: 300;
+	}
+	.chats {
+		margin-top: 100px;
+	}
 }
 
-.content {
-	@extend %content;
+@media screen and (max-width: 1024px) {
+	.content {
+		background-color: $content-background-color;
+		min-height: 100px;
+		text-align: $content-text-align;
+		padding: $content-padding;
+		justify-content: $content-justify-content;
+		align-items: $content-align-items;
+	}
+	.contentWrapper {
+		display: block;
+	}
+	.welcomeText {
+		font-weight: $welcome-text-font-weight;
+		font-size: $welcome-text-font-size;
+		margin-bottom: $welcome-text-margin-bottom;
+	}
+	.beehivePic {
+		width: auto;
+		margin: auto;
+	}
+	.custom-file-label {
+		width: 50%;
+		flex-wrap: nowrap;
+	}
+	.hiveButton {
+		width: 200px;
+		height: 45px;
+		border-radius: 8px;
+		font-size: 1.5em;
+		font-weight: 300;
+	}
+	.chats {
+		margin-top: 100px;
+	}
 }
-.welcomeText {
-	@extend %welcome-text;
-}
-.beehivePic {
-	@extend %beehive-pic;
-}
-.custom-file-label {
-	width: 50%;
-	flex-wrap: nowrap;
-}
-.hiveButton {
-	width: 200px;
-	height: 45px;
-	border-radius: 8px;
-	font-size: 1.5em;
-	font-weight: 300;
-}
-.chats {
-	margin-top: 100px;
+
+@media screen and (max-width: 300px) {
+	.content {
+		background-color: $content-background-color;
+		min-height: 100px;
+		text-align: $content-text-align;
+		padding: $content-padding;
+		justify-content: $content-justify-content;
+		align-items: $content-align-items;
+	}
+	.contentWrapper {
+		display: block;
+	}
+	.welcomeText {
+		font-weight: $welcome-text-font-weight;
+		font-size: $welcome-text-font-size;
+		margin-bottom: $welcome-text-margin-bottom;
+	}
+	.beehivePic {
+		width: auto;
+		margin: auto;
+	}
+	.custom-file-label {
+		width: 50%;
+		flex-wrap: nowrap;
+	}
+	.hiveButton {
+		width: 200px;
+		height: 45px;
+		border-radius: 8px;
+		font-size: 1.5em;
+		font-weight: 300;
+	}
+	.chats {
+		margin-top: 100px;
+	}
 }
