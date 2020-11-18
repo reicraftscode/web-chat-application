@@ -5,7 +5,7 @@ import Messages from "../Messages/Messages";
 import SendMessage from "../SendMessage/SendMessage";
 import style from "./Chats.module.scss";
 
-const Chats = ({ username, isLoggedIn }) => {
+const Chats = ({ username, isLoggedIn, image }) => {
 	const [userList, setUserList] = useState([]);
 	const [isTriggered, setTriggered] = useState(false);
 	const socketRef = useRef();
@@ -25,9 +25,9 @@ const Chats = ({ username, isLoggedIn }) => {
 				setUserListToState(data);
 			}
 		});
-		socketRef.current.on("disconnect", function (reason) {
-			alert("Socket disconnected because of " + reason);
-		});
+		// socketRef.current.on("disconnect", function (reason) {
+		// 	alert("Socket disconnected because of " + reason);
+		// });
 
 		if (isLoggedIn === true && isTriggered === false) {
 			const data = {
@@ -53,6 +53,11 @@ const Chats = ({ username, isLoggedIn }) => {
 							return (
 								<ul className="list-group" key={index}>
 									<li className="list-group-item">
+										<img
+											className={style.avatar}
+											src={image.preview}
+											alt="profilename"
+										/>
 										{username === user.username ? "You" : user.username}
 									</li>
 								</ul>
