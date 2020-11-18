@@ -24,14 +24,23 @@ io.on("connection", (socket) => {
 	socket.on("disconnect", () => {
 		//check index
 		const index = loggedUsers.findIndex((x) => x.socketid === socket.id);
+		console.log(`user ${loggedUsers[index].username} has logged out`);
+		//send a notice that the user has disconnected
+		io.emit("message", {
+			data: {
+				username: loggedUsers[index].username,
+				message: `${loggedUsers[index].username} has logged out `,
+			},
+		});
 		//remove if index detected
 		if (index !== undefined) loggedUsers.splice(index, 1);
-		// console.log("removed" + JSON.stringify(loggedUsers));
 		//emit remove users to remove user in frontend
 		io.emit("removeusers", loggedUsers);
+		console.log("a user has disconnected");
 	});
 	socket.on("logout", (data) => {
 		//if socket is disconnected for some reason
+		console.log(data);
 		console.log("user " + data.username + " has logout");
 	});
 	//emit a message once a user connected
