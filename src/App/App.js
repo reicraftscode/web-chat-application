@@ -7,9 +7,37 @@ const username = "B" + Randomizer().join("");
 
 const App = () => {
 	const [isLoggedIn, setLoggedIn] = useState(false);
-	const [image, setImage] = useState({ preview: "", raw: "" });
+	const [image, setImage] = useState({ preview: "", raw: "", url: "" });
 	const handleLogin = () => {
 		setLoggedIn(true);
+		if (image.preview === "" || image.preview === undefined) {
+			const randomnum = Math.floor(Math.random() * 5);
+			if (randomnum === 0) {
+				setImage({
+					url: "./assets/photos/bees/bee.png",
+				});
+			} else if (randomnum === 1) {
+				setImage({
+					url: "./assets/photos/bees/bee1.png",
+				});
+			} else if (randomnum === 2) {
+				setImage({
+					url: "./assets/photos/bees/bee2.png",
+				});
+			} else if (randomnum === 3) {
+				setImage({
+					url: "./assets/photos/bees/bee3.png",
+				});
+			} else if (randomnum === 4) {
+				setImage({
+					url: "./assets/photos/bees/bee4.png",
+				});
+			} else if (randomnum === 5) {
+				setImage({
+					url: "./assets/photos/bees/bee5.png",
+				});
+			}
+		}
 	};
 	const handleChange = (e) => {
 		if (e.target.files.length) {
