@@ -7,8 +7,17 @@ const username = "B" + Randomizer().join("");
 
 const App = () => {
 	const [isLoggedIn, setLoggedIn] = useState(false);
+	const [image, setImage] = useState({ preview: "", raw: "" });
 	const handleLogin = () => {
 		setLoggedIn(true);
+	};
+	const handleChange = (e) => {
+		if (e.target.files.length) {
+			setImage({
+				preview: URL.createObjectURL(e.target.files[0]),
+				raw: e.target.files[0],
+			});
+		}
 	};
 	const MainContent = () => {
 		return (
@@ -31,9 +40,10 @@ const App = () => {
 									id="customFileLang"
 									lang="pl-Pl"
 									accept="images/*"
+									onChange={handleChange}
 								/>
 								<label className="custom-file-label" htmlFor="customFileLang">
-									Upload your avatar
+									{image.preview ? "Uploaded" : "Upload your avatar"}
 								</label>
 							</div>
 							<button
@@ -56,11 +66,13 @@ const App = () => {
 			<div style={isLoggedIn ? { display: "none" } : { display: "block" }}>
 				<MainContent />
 			</div>
-			<div
-				style={isLoggedIn ? { display: "block" } : { display: "none" }}
-				className="mt-5 container-fluid"
-			>
-				<Chats username={username} isLoggedIn={isLoggedIn} />
+			<div className={style.chatWrapper}>
+				<div
+					style={isLoggedIn ? { display: "block" } : { display: "none" }}
+					className="mt-5 container-fluid"
+				>
+					<Chats username={username} isLoggedIn={isLoggedIn} image={image} />
+				</div>
 			</div>
 		</div>
 	);
