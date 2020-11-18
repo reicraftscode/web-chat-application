@@ -55,6 +55,10 @@ $beehive-pic-margin-right: 100px;
 	.chats {
 		margin-top: 100px;
 	}
+	.chatWrapper {
+		padding-top: 20px;
+		background-color: #f2f2f2;
+	}
 }
 
 @media screen and (max-width: 1024px) {
@@ -92,6 +96,15 @@ $beehive-pic-margin-right: 100px;
 	.chats {
 		margin-top: 100px;
 	}
+	.chatWrapper {
+		padding-top: 20px;
+		background-color: #f2f2f2;
+		min-height: 600px;
+	}
+	.imagePreview {
+		width: 100px;
+		height: 100px;
+	}
 }
 
 @media screen and (max-width: 300px) {
@@ -128,5 +141,10 @@ $beehive-pic-margin-right: 100px;
 	}
 	.chats {
 		margin-top: 100px;
+	}
+	.chatWrapper {
+		padding-top: 20px;
+		background-color: #f2f2f2;
+		min-height: 600px;
 	}
 }
