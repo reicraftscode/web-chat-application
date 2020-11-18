@@ -14,7 +14,7 @@ const Messages = ({ username }) => {
 
 	return (
 		<div className={style.MainDiv}>
-			<h2>Messages</h2>
+			<h3 className="font-weight-bold">Chat Messages</h3>
 			<div
 				id="messagetext"
 				className={`mt-3 ${style.messagesContainer} container-fluid`}
