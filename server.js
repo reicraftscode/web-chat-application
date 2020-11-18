@@ -1,5 +1,3 @@
-const { createSocket } = require("dgram");
-const express = require("express");
 const PORT = 3000;
 const app = require("express")();
 const http = require("http").createServer(app);
@@ -10,12 +8,12 @@ const io = require("socket.io")(http, {
 		// allowedHeaders: ["my-custom-header"],
 		// credentials: true,
 	},
+	//specify websocket as transport
 	transports: ["websocket"],
 	timeout: 15000,
 });
 let loggedUsers = [];
 
-const STATIC_CHANNELS = ["global_notifications", "global_chat"];
 io.on("connection", (socket) => {
 	//prompt someone connected
 	console.log("new client connected");
