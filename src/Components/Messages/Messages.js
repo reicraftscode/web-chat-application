@@ -34,6 +34,7 @@ const Messages = ({ username }) => {
 									? "You:"
 									: message.data.username + ":"}
 								{message.data.message}
+								<br />
 								{message.data.time}
 							</p>
 						</>
