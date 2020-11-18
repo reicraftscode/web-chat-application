@@ -14,7 +14,7 @@ const SendMessage = ({ username }) => {
 				data: {
 					username: username,
 					message: message,
-					time: moment().format("MMMM DD,YYYY hh:mm A"),
+					time: moment().format("MMMM DD,YYYY hh:mm:ss"),
 				},
 			});
 			setMessage("");
