@@ -8,29 +8,35 @@ const Messages = ({ username }) => {
 	useEffect(() => {
 		socketRef.current = socket;
 		socketRef.current.on("message", (data) => {
-			setMessages([...messages, data]);
+			setMessages((messages) => [...messages, data]);
 		});
-	}, [messages]);
+	}, []);
 
 	return (
 		<div className={style.MainDiv}>
 			<h2>Messages</h2>
-			<div className={`mt-3 ${style.messagesContainer} container-fluid`}>
-				{messages.map((message, index) => {
+			<div
+				id="messagetext"
+				className={`mt-3 ${style.messagesContainer} container-fluid`}
+			>
+				{messages.map((message) => {
 					return (
-						<p
-							key={index}
-							className={
-								message.data.username === username
-									? style.messageOwner
-									: style.messageReceiver
-							}
-						>
-							{message.data.username === username
-								? "You:"
-								: message.data.username + ":"}
-							{message.data.message}
-						</p>
+						<>
+							<p
+								key={Math.random()}
+								className={
+									message.data.username === username
+										? style.messageOwner
+										: style.messageReceiver
+								}
+							>
+								{message.data.username === username
+									? "You:"
+									: message.data.username + ":"}
+								{message.data.message}
+								{message.data.time}
+							</p>
+						</>
 					);
 				})}
 			</div>
