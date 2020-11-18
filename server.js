@@ -10,9 +10,8 @@ const io = require("socket.io")(http, {
 		// allowedHeaders: ["my-custom-header"],
 		// credentials: true,
 	},
-	transports: ["websocket", "polling"],
-	pingInterval: 1000,
-	pingTimeout: 2000,
+	transports: ["websocket"],
+	timeout: 15000,
 });
 let loggedUsers = [];
 
@@ -24,14 +23,11 @@ io.on("connection", (socket) => {
 	socket.on("disconnect", () => {
 		//check index
 		const index = loggedUsers.findIndex((x) => x.socketid === socket.id);
-		console.log(`user ${loggedUsers[index].username} has logged out`);
+
 		//send a notice that the user has disconnected
-		io.emit("message", {
-			data: {
-				username: loggedUsers[index].username,
-				message: `${loggedUsers[index].username} has logged out `,
-			},
-		});
+		if (loggedUsers[index] != undefined) {
+			console.log(`user ${loggedUsers[index].username} has logged out`);
+		}
 		//remove if index detected
 		if (index !== undefined) loggedUsers.splice(index, 1);
 		//emit remove users to remove user in frontend
@@ -50,19 +46,12 @@ io.on("connection", (socket) => {
 		//if data is not in array then push the data
 		if (!loggedUsers.includes(data)) {
 			loggedUsers.push(data);
+			//add to online users
+			io.emit("onlineusers", loggedUsers);
 		}
-		//add to online users
-		io.emit("onlineusers", loggedUsers);
-		//emit a welcome message
-		io.emit("message", {
-			data: {
-				username: data.username,
-				message: `${data.username} has logged in `,
-			},
-		});
 	});
 	socket.on("message", (data) => {
-		console.log(data);
+		io.emit("message", data);
 	});
 });
 
