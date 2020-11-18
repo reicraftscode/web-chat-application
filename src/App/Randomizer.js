@@ -2,7 +2,6 @@
  * @description automatically generate
  */
 const Randomizer = () => {
-	const isCharOrInt = Math.floor(Math.random() * 2);
 	const length = 4;
 	const finalUserName = [];
 
@@ -19,6 +18,7 @@ const Randomizer = () => {
 	};
 
 	while (finalUserName.length !== length) {
+		const isCharOrInt = Math.floor(Math.random() * 2);
 		if (isCharOrInt === 0) {
 			const char = characterGenerator();
 			finalUserName.push(char);
