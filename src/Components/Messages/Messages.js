@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { io, socket } from "../../Service/Socket";
+import style from "./Messages.module.scss";
 
 const Messages = ({ username }) => {
 	const socketRef = useRef();
@@ -12,19 +13,24 @@ const Messages = ({ username }) => {
 	}, [messages]);
 
 	return (
-		<div>
+		<div className={style.MainDiv}>
 			<h2>Messages</h2>
-			<div className="mt-3 ">
+			<div className={`mt-3 ${style.messagesContainer} container-fluid`}>
 				{messages.map((message, index) => {
-					console.log(username, message.data.username);
 					return (
-						<div key={index}>
-							<p>
-								{message.data.username === username
-									? "You"
-									: message.data.username}
-							</p>
-						</div>
+						<p
+							key={index}
+							className={
+								message.data.username === username
+									? style.messageOwner
+									: style.messageReceiver
+							}
+						>
+							{message.data.username === username
+								? "You:"
+								: message.data.username + ":"}
+							{message.data.message}
+						</p>
 					);
 				})}
 			</div>

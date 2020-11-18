@@ -1,0 +1,31 @@
+@media only screen and (min-width: 1024px) {
+	.messagesContainer {
+		border-style: solid;
+		height: 400px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		position: relative;
+	}
+	.messageOwner {
+	}
+	.messageReceiver {
+		margin-left: 400px;
+		text-align: right;
+		color: red;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.messagesContainer {
+		border-style: solid;
+	}
+	.messageOwner {
+		border-style: solid;
+	}
+	.messageReceiver {
+		border-style: solid;
+		margin-left: 400px;
+		text-align: right;
+		color: red;
+	}
+}
