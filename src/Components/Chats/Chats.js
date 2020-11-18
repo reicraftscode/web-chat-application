@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import moment from "moment";
 import { io, socket } from "../../Service/Socket";
 import Messages from "../Messages/Messages";
+import style from "./Chats.module.scss";
 
 const Chats = ({ username }) => {
 	const [userList, setUserList] = useState([]);
@@ -41,10 +42,10 @@ const Chats = ({ username }) => {
 		setUserList(data);
 	};
 	return (
-		<div>
-			<div className="row">
-				<div className="col col-md-2">
-					<h2 className="ml-2">Users</h2>
+		<div className={style.MainDiv}>
+			<div className="">
+				<div className="">
+					<h2 className="">Users</h2>
 					{userList.map((user, index) => {
 						return (
 							<ul className="list-group" key={index}>
@@ -55,9 +56,9 @@ const Chats = ({ username }) => {
 						);
 					})}
 				</div>
-				<div className="ml-5">
-					<Messages username={username} />
-				</div>
+			</div>
+			<div className={style.MessageDiv}>
+				<Messages username={username} />
 			</div>
 		</div>
 	);

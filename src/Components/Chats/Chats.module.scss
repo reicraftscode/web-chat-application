@@ -1,0 +1,20 @@
+@media only screen and (min-width: 1024px) {
+	.MainDiv {
+		display: flex;
+		flex-direction: row;
+	}
+	.MessageDiv {
+		margin-left: 50px;
+		flex: 2 0 0;
+		border-style: solid;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.MainDiv {
+		display: block;
+	}
+	.MessageDiv {
+		flex: 2 0 0;
+	}
+}
