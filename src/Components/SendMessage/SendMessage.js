@@ -1,8 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import { io, socket } from "../../Service/Socket";
 import moment from "moment";
+import style from "./SendMessage.module.scss";
+import { useHistory } from "react-router-dom";
 
 const SendMessage = ({ username }) => {
+	const history = useHistory();
 	const [message, setMessage] = useState("");
 	const socketRef = useRef();
 	socketRef.current = socket;
@@ -23,22 +26,42 @@ const SendMessage = ({ username }) => {
 	const handleMessageText = (e) => {
 		setMessage(e.target.value);
 	};
+	const handleExit = () => {
+		socketRef.current.disconnect();
+		alert("You have disconnected!");
+		history.push("/exit");
+	};
 	const handleInputEnter = (e) => {
 		if (e.keyCode === 13) {
-			handleSendMessage();
+			if (message === "") {
+				alert("Please enter a message");
+			}
+			if (!e.shiftKey) {
+				handleSendMessage();
+			}
 		}
 	};
 	return (
 		<div>
-			<div>
-				<input
+			<div className={style.chatBoxWrapper}>
+				<h3 className="font-weight-bold">Chat Now!</h3>
+				<textarea
+					className={style.chatInput}
 					type="text"
 					onChange={handleMessageText}
 					value={message}
 					required={true}
-					onKeyDown={handleInputEnter}
+					onKeyUp={handleInputEnter}
 				/>
-				<button onClick={() => handleSendMessage()}>Test emit</button>
+				<button
+					className={style.sendButton}
+					onClick={() => handleSendMessage()}
+				>
+					Send
+				</button>
+				<button className={style.exitButton} onClick={() => handleExit()}>
+					Exit Chat
+				</button>
 			</div>
 		</div>
 	);
