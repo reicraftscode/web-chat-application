@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
-import moment from "moment";
-import { io, socket } from "../../Service/Socket";
+import { socket } from "../../Service/Socket";
 import Messages from "../Messages/Messages";
 import SendMessage from "../SendMessage/SendMessage";
 import style from "./Chats.module.scss";
+import axios from "axios";
+const CREATE_USER_ENDPOINT = "http://localhost:3000/user/create";
 
 const Chats = ({ username, isLoggedIn, image }) => {
 	const [userList, setUserList] = useState([]);
@@ -34,12 +35,22 @@ const Chats = ({ username, isLoggedIn, image }) => {
 				socketid: socketRef.current.id,
 				id: id,
 				username: username,
+				image: image,
 				// time: moment().format("MMMM DD,YYYY hh:mm A"),
 			};
 			socketRef.current.emit("login", data);
 			setTriggered(true);
+			let formData = new FormData();
+			formData.append("username", username);
+			formData.append("file", image.raw);
+			formData.append("url", image.url);
+			const insertUser = async () => {
+				const res = await axios.post(CREATE_USER_ENDPOINT, formData);
+				console.log(res);
+			};
+			insertUser();
 		}
-	}, [id, username, userList, isLoggedIn, isTriggered]);
+	}, [id, username, userList, isLoggedIn, isTriggered, image]);
 	const setUserListToState = (data) => {
 		setUserList(data);
 	};
@@ -49,13 +60,13 @@ const Chats = ({ username, isLoggedIn, image }) => {
 				<div className="">
 					<div className="">
 						<h2 className="">Users</h2>
-						{userList.map((user, index) => {
+						{userList.map((user) => {
 							return (
-								<ul className="list-group" key={index}>
+								<ul className="list-group" key={Math.random()}>
 									<li className="list-group-item">
 										<img
 											className={style.avatar}
-											src={image.preview}
+											src={user.image.preview || user.image.url}
 											alt="profilename"
 										/>
 										{username === user.username ? "You" : user.username}
@@ -70,7 +81,7 @@ const Chats = ({ username, isLoggedIn, image }) => {
 				</div>
 			</div>
 			<div className={style.SendMessageDiv}>
-				<SendMessage username={username} />
+				<SendMessage username={username} image={image} />
 			</div>
 		</div>
 	);
