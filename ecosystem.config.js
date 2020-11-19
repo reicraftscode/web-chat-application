@@ -3,7 +3,7 @@ module.exports = {
 		{
 			name: "backend",
 			script: "npm",
-			cwd: "./web-chat-project-backend",
+			cwd: "./backend",
 			args: "start",
 			error_file: "../logs/backend_err.log",
 			out_file: "../logs/backend_out.log",
@@ -16,7 +16,7 @@ module.exports = {
 		{
 			name: "frontend",
 			script: "npm",
-			cwd: "./web-chat-project-frontend",
+			cwd: "./frontend",
 			args: "start",
 			interpreter: "/bin/bash",
 			error_file: "../logs/frontend_err.log",
