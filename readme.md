@@ -79,6 +79,8 @@ In persisting things right inside our repository, things was kind of tricky but 
 
 My components do not rely on other's to have a certain state or propoerty, but instead react upon one another's state or data to influence their own properties.
 
+Linter or the coding conventions are mandated by jsdoc which makes it easier for us to do avoid bugs on code by enforcing coding conventions.
+
 ### Styling
 
 I used React-bootstrap  and scss to style things differently asd well as conditional rendering. Scss variables are so good to the point that you can override boostrap itself.
