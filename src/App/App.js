@@ -14,10 +14,14 @@ const App = () => {
 	useEffect(() => {
 		//check if user is in database
 		const checkUser = async () => {
-			const res = await axios.post(GET_USER_ENDPOINT, { username: username });
-			if (res.status === 409) {
-				username = "B" + Randomizer().join("");
-				console.log("will generate new random username again: " + username);
+			try {
+				const res = await axios.post(GET_USER_ENDPOINT, { username: username });
+				if (res.status === 409) {
+					username = "B" + Randomizer().join("");
+					console.log("will generate new random username again: " + username);
+				}
+			} catch (err) {
+				console.log(err);
 			}
 		};
 		checkUser();
