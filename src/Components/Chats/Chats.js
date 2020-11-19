@@ -26,9 +26,12 @@ const Chats = ({ username, isLoggedIn, image }) => {
 				setUserListToState(data);
 			}
 		});
+
+		//==ONLY USE THIS FOR DEBUGGING==//
 		// socketRef.current.on("disconnect", function (reason) {
 		// 	alert("Socket disconnected because of " + reason);
 		// });
+		//==ONLY USE THIS FOR DEBUGGING==//
 
 		if (isLoggedIn === true && isTriggered === false) {
 			const data = {
@@ -36,7 +39,6 @@ const Chats = ({ username, isLoggedIn, image }) => {
 				id: id,
 				username: username,
 				image: image,
-				// time: moment().format("MMMM DD,YYYY hh:mm A"),
 			};
 			socketRef.current.emit("login", data);
 			setTriggered(true);

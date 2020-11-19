@@ -4,11 +4,14 @@ import Randomizer from "./Randomizer";
 import Header from "../Header/Header";
 import Chats from "../Components/Chats/Chats";
 import axios from "axios";
-
+const USER_COUNT_ENDPOINT = "http://localhost:3000/usercount";
+const MESSAGE_COUNT_ENDPOINT = "http://localhost:3000/messagecount";
 let username = "B" + Randomizer().join("");
 const GET_USER_ENDPOINT = "http://localhost:3000/user/get";
 
 const App = () => {
+	const [usersCount, setUsersCount] = useState(null);
+	const [messageCount, setMessageCount] = useState(null);
 	const [isLoggedIn, setLoggedIn] = useState(false);
 	const [image, setImage] = useState({ preview: "", raw: "", url: "" });
 	useEffect(() => {
@@ -25,6 +28,23 @@ const App = () => {
 			}
 		};
 		checkUser();
+		const getCounters = async () => {
+			try {
+				const userRes = await axios.get(USER_COUNT_ENDPOINT);
+				if (userRes.status === 200) {
+					setUsersCount(userRes.data);
+				}
+				const messageRes = await axios.get(MESSAGE_COUNT_ENDPOINT);
+				if (messageRes.status === 200) {
+					setMessageCount(messageRes.data);
+				}
+			} catch (err) {
+				console.log(err);
+			}
+		};
+		if (isLoggedIn === false) {
+			getCounters();
+		}
 	});
 
 	const handleLogin = () => {
@@ -80,6 +100,8 @@ const App = () => {
 						/>
 						<div className={style.chats}>
 							<p>Your username is: B{username}</p>
+							<p>Number of registered users:{usersCount}</p>
+							<p>Number of messages:{messageCount}</p>
 							<div className="custom-file">
 								<input
 									type="file"

@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./Header.module.scss";
+
 const Header = () => {
 	return (
 		<div>
@@ -14,6 +15,7 @@ const Header = () => {
 					<h3 className={style.beeText}>ChatBee</h3>
 				</div>
 			</div>
+
 			{/* End logo wrapper div */}
 		</div>
 	);

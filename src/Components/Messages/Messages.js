@@ -5,6 +5,7 @@ import axios from "axios";
 
 const API_MESSAGES_ENDPOINT = "http://localhost:3000/messagelist";
 const Messages = ({ username }) => {
+	const endDiv = useRef();
 	const socketRef = useRef();
 	const [messages, setMessages] = useState([]);
 	const [retreivedMessage, setRetrievedMessage] = useState([]);
@@ -25,6 +26,7 @@ const Messages = ({ username }) => {
 		} catch (err) {
 			console.log(err);
 		}
+		endDiv.current.scrollIntoView({ behavior: "smooth" });
 	}, []);
 	const handleMouseHover = () => {
 		setShown(true);
@@ -44,7 +46,7 @@ const Messages = ({ username }) => {
 						<div
 							onMouseEnter={() => handleMouseHover()}
 							onMouseLeave={() => handleMouseOut()}
-							key={message.data.time}
+							key={Math.random()}
 							className={
 								message.data.username === username
 									? style.messageOwner
@@ -99,6 +101,7 @@ const Messages = ({ username }) => {
 						</div>
 					);
 				})}
+				<div ref={endDiv}></div>
 			</div>
 		</div>
 	);
