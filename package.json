@@ -1,0 +1,12 @@
+{
+	"name": "web-chat-project",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"start": "pm2 start ecosystem.config.js"
+	},
+	"dependencies": {
+		"pm2": "^4.5.0"
+	}
+}

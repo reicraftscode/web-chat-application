@@ -1,0 +1,30 @@
+module.exports = {
+	apps: [
+		{
+			name: "backend",
+			script: "npm",
+			cwd: "./web-chat-project-backend",
+			args: "start",
+			error_file: "../logs/backend_err.log",
+			out_file: "../logs/backend_out.log",
+			exec_mode: "cluster_mode",
+			interpreter: "/bin/bash",
+			instances: 1,
+			watch: true,
+			ignore_watch: ["[/\\]./", "node_modules"],
+		},
+		{
+			name: "frontend",
+			script: "npm",
+			cwd: "./web-chat-project-frontend",
+			args: "start",
+			interpreter: "/bin/bash",
+			error_file: "../logs/frontend_err.log",
+			out_file: "../logs/frontend_out.log",
+			exec_mode: "cluster_mode",
+			instances: 1,
+			watch: true,
+			ignore_watch: ["[/\\]./", "node_modules"],
+		},
+	],
+};
