@@ -18,6 +18,14 @@ Start a terminal in the main/root folder then you can get started with commands.
 
 Frontend and Backend are managed to run concurrently using pm2 all you have to do is go to the root directory and invoke npm start.
 
+### npm stop (root)
+
+Stop concurrently running app.
+
+### npm restart (root)
+
+Restart concurrently running app.
+
 ### npm start (backend)
 
 Backend can run separately using this command.
