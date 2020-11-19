@@ -45,8 +45,12 @@ const Chats = ({ username, isLoggedIn, image }) => {
 			formData.append("file", image.raw);
 			formData.append("url", image.url);
 			const insertUser = async () => {
-				const res = await axios.post(CREATE_USER_ENDPOINT, formData);
-				console.log(res);
+				try {
+					const res = await axios.post(CREATE_USER_ENDPOINT, formData);
+					console.log(res);
+				} catch (err) {
+					console.log(err);
+				}
 			};
 			insertUser();
 		}
