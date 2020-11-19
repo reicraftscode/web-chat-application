@@ -6,11 +6,23 @@
 		position: relative;
 	}
 	.messageOwner {
+		background-color: #ffffff;
+		width: 55%;
+		margin-top: 15px;
+		display: flex;
+		padding: 10px;
 	}
 	.messageReceiver {
-		margin-left: 400px;
-		text-align: right;
-		color: red;
+		margin-left: 55%;
+		background-color: #ffffff;
+		width: 55%;
+		margin-top: 15px;
+		display: flex;
+		padding: 10px;
+	}
+	.avatar {
+		width: 50px;
+		margin-left: 15px;
 	}
 }
 
@@ -26,5 +38,9 @@
 		margin-left: 400px;
 		text-align: right;
 		color: red;
+	}
+	.avatar {
+		width: 50px;
+		margin-left: 15px;
 	}
 }
