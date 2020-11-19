@@ -10,7 +10,7 @@ module.exports = {
 			exec_mode: "cluster_mode",
 			interpreter: "/bin/bash",
 			instances: 1,
-			watch: true,
+			watch: false,
 			ignore_watch: ["[/\\]./", "node_modules"],
 		},
 		{
@@ -23,7 +23,7 @@ module.exports = {
 			out_file: "../logs/frontend_out.log",
 			exec_mode: "cluster_mode",
 			instances: 1,
-			watch: true,
+			watch: false,
 			ignore_watch: ["[/\\]./", "node_modules"],
 		},
 	],
