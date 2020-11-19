@@ -3,11 +3,26 @@ import React, { useState, useEffect } from "react";
 import Randomizer from "./Randomizer";
 import Header from "../Header/Header";
 import Chats from "../Components/Chats/Chats";
-const username = "B" + Randomizer().join("");
+import axios from "axios";
+
+let username = "B" + Randomizer().join("");
+const GET_USER_ENDPOINT = "http://localhost:3000/user/get";
 
 const App = () => {
 	const [isLoggedIn, setLoggedIn] = useState(false);
 	const [image, setImage] = useState({ preview: "", raw: "", url: "" });
+	useEffect(() => {
+		//check if user is in database
+		const checkUser = async () => {
+			const res = await axios.post(GET_USER_ENDPOINT, { username: username });
+			if (res.status === 409) {
+				username = "B" + Randomizer().join("");
+				console.log("will generate new random username again: " + username);
+			}
+		};
+		checkUser();
+	});
+
 	const handleLogin = () => {
 		setLoggedIn(true);
 		if (image.preview === "" || image.preview === undefined) {
