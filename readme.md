@@ -18,6 +18,14 @@ Start a terminal in the main/root folder then you can get started with commands.
 
 Frontend and Backend are managed to run concurrently using pm2 all you have to do is go to the root directory and invoke npm start.
 
+### npm start (backend)
+
+Backend can run separately using this command.
+
+### npm startDev (backend)
+
+Backend can run separately using this command with hot reload.
+
 ### npm start (frontend)
 
 Frontend will run on port 3001 if it did not work use fallback scripts.
@@ -37,7 +45,7 @@ You can build it then use the combination of
     npm install -g serve
     serve -s build
 
-### npm run test
+### npm run test(frontend)
 
 Run command to verify if things render well (make sure to run the backend while testing)
 
