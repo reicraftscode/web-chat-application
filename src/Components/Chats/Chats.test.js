@@ -1,10 +1,10 @@
-import React from "react";
-import Header from "../Header/Header";
-const Chats = () => {
-	return (
-		<div>
-			<Header />
-		</div>
-	);
+import { render, screen } from "@testing-library/react";
+import Chats from "./Chats";
+const image = {
+	url: "test",
 };
-export default Chats;
+test("renders users list", () => {
+	render(<Chats image={image} />);
+	const linkElement = screen.getByText("Users");
+	expect(linkElement).toBeInTheDocument();
+});
