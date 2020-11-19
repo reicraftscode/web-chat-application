@@ -149,18 +149,19 @@ app.post("/user/get", (req, res) => {
 		}
 	});
 });
-
+//get all users who registered
 app.get("/usercount", (req, res) => {
 	UserModel.countDocuments({}, function (err, count) {
-		res.json({ users: count });
+		res.send(count.toString());
 	});
 });
+//get all messages count
 app.get("/messagecount", (req, res) => {
 	MessageModel.countDocuments({}, function (err, count) {
-		res.json({ message: count });
+		res.send(count.toString());
 	});
 });
-
+//get all messages for a feature in the frontend
 app.get("/messagelist", function (req, res) {
 	console.log("message fired");
 	MessageModel.find({}, function (err, messages) {
