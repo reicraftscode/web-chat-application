@@ -108,7 +108,7 @@ const App = () => {
 									className="custom-file-input"
 									id="customFileLang"
 									lang="pl-Pl"
-									accept="images/*"
+									accept="image/*"
 									onChange={handleChange}
 								/>
 								<label className="custom-file-label" htmlFor="customFileLang">
