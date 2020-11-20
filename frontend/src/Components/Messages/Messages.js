@@ -5,7 +5,7 @@ import axios from "axios";
 
 const API_MESSAGES_ENDPOINT = "http://localhost:3000/messagelist";
 const Messages = ({ username }) => {
-	const endDiv = useRef();
+	const endDiv = useRef(null);
 	const socketRef = useRef();
 	const [messages, setMessages] = useState([]);
 	const [retreivedMessage, setRetrievedMessage] = useState([]);
@@ -26,8 +26,12 @@ const Messages = ({ username }) => {
 		} catch (err) {
 			console.log(err);
 		}
-		endDiv.current.scrollIntoView({ behavior: "smooth" });
-	}, []);
+		if (!endDiv.current) {
+			return;
+		} else {
+			endDiv.current.scrollIntoView({ behavior: "smooth" });
+		}
+	}, [messages]);
 	const handleMouseHover = () => {
 		setShown(true);
 	};
@@ -89,6 +93,7 @@ const Messages = ({ username }) => {
 								alt="user avatar"
 							/>
 							<div className="ml-3">
+								<div ref={endDiv}> </div>
 								{message.data.username === username
 									? "You:"
 									: message.data.username + ":"}
@@ -98,10 +103,10 @@ const Messages = ({ username }) => {
 									<p className="ml-5">{isShown ? message.data.time : ""}</p>
 								</div>
 							</div>
+							<div ref={endDiv}></div>
 						</div>
 					);
 				})}
-				<div ref={endDiv}></div>
 			</div>
 		</div>
 	);
