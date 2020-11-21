@@ -1,8 +1,22 @@
+/**
+ * @module config.js
+ * @description configuration for mongoose
+ */
+
+/**
+ * @description requires mongoose
+ */
 const mongoose = require("mongoose");
 
+/**
+ * @description variable for mongoose
+ */
 const MONGO_URI =
 	"mongodb+srv://admin:admin@cluster0.yiwgy.mongodb.net/chatbee?retryWrites=true&w=majority";
 
+/**
+ * @description connect to mongoose
+ */
 mongoose.connect(MONGO_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
@@ -10,8 +24,15 @@ mongoose.connect(MONGO_URI, {
 	useCreateIndex: true,
 });
 
+/**
+ * @description declare connections
+ */
 const connection = mongoose.connection;
 
+/**
+ * @function testConnection
+ * @returns {string} error or connected
+ */
 const testConnection = () => {
 	connection.on("error", () => {
 		console.error.bind(console, "connection error:");
