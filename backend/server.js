@@ -4,17 +4,17 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const formidable = require("formidable");
-const morgan = require('morgan');
-const path = require('path')
-const rfs = require('rotating-file-stream') 
+const morgan = require("morgan");
+const path = require("path");
+const rfs = require("rotating-file-stream");
 
-let accessLogStream = rfs.createStream('access.log', {
-	interval: '1d', // rotate daily
-	path: path.join(__dirname, 'log')
-  })
+let accessLogStream = rfs.createStream("access.log", {
+	interval: "1d", // rotate daily
+	path: path.join(__dirname, "logs"),
+});
 
 app.use(cors());
-app.use(morgan('combined', { stream: accessLogStream }))
+app.use(morgan("combined", { stream: accessLogStream }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -70,6 +70,7 @@ io.on("connection", (socket) => {
 			loggedUsers.push(data);
 			//add to online users
 			io.emit("onlineusers", loggedUsers);
+			io.emit("login", data);
 		}
 	});
 	socket.on("message", (data) => {
