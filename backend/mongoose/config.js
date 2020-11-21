@@ -1,5 +1,5 @@
 /**
- * @module config.js
+ * @module mongoose
  * @description configuration for mongoose
  */
 

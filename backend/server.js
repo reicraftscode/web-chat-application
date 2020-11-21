@@ -1,5 +1,5 @@
 /**
- * @module server.js
+ * @module server
  * @description this is the main server file for the backend
  */
 
