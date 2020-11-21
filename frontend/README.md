@@ -7,7 +7,7 @@ it runs on PORT 3001
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
@@ -16,12 +16,30 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 If things do not work please build it and serve instead.
 
-### `npm test`
+### `npm run startLinux`
+
+Runs the app in the development mode for linux.\
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+If things do not work please build it and serve instead.
+
+### `npm run startWindows`
+
+Runs the app in the development mode for windows.\
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+If things do not work please build it and serve instead.
+
+### `npm run test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm build`
+### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.

@@ -30,6 +30,14 @@ Restart concurrently running app.
 
 Backend can run separately using this command.
 
+### npm test (backend)
+
+Backend can run separately using this command.
+
+### `npm run document` (backend)
+
+Launches the server in normal mode (does not auto reload).
+
 ### npm startDev (backend)
 
 Backend can run separately using this command with hot reload.
@@ -83,7 +91,7 @@ Avatar will be move into a folder once it is uploaded and in there, react will a
 
 I just did a simple validation using react testing library to see if things do render as expected. The testing library tries to simulate rendering which is good since I had seen some possible problems along the way when I tested things out.
 
-1. The React Testing Library is a very light-weight solution for testing React components. It provides light utility functions on top of react-dom and react-dom/test-utils, in a way that encourages better testing practices. 
+1. The React Testing Library is a very light-weight solution for testing React components. It provides light utility functions on top of react-dom and react-dom/test-utils, in a way that encourages better testing practices.
 
 2. So rather than dealing with instances of rendered React components, your tests will work with actual DOM nodes. The utilities this library provides facilitate querying the DOM in the same way the user would. Finding form elements by their label text (just like a user would), finding links and buttons from their text (like a user would). It also exposes a recommended way to find elements by a data-testid as an "escape hatch" for elements where the text content and label do not make sense or is not practical. https://testing-library.com/docs/react-testing-library/intro/
 
@@ -99,7 +107,7 @@ Linter or the coding conventions are mandated by jsdoc which makes it easier for
 
 ### Styling
 
-I used React-bootstrap  and scss to style things differently asd well as conditional rendering. Scss variables are so good to the point that you can override boostrap itself.
+I used React-bootstrap and scss to style things differently asd well as conditional rendering. Scss variables are so good to the point that you can override boostrap itself.
 
 ## License
 
