@@ -10,6 +10,7 @@ const Chats = ({ username, isLoggedIn, image }) => {
 	const [userList, setUserList] = useState([]);
 	const [isTriggered, setTriggered] = useState(false);
 	const socketRef = useRef();
+	const endDiv = useRef(null);
 	const id = Math.floor(Math.random() * 5);
 	useEffect(() => {
 		socketRef.current = socket;
@@ -83,11 +84,11 @@ const Chats = ({ username, isLoggedIn, image }) => {
 					</div>
 				</div>
 				<div className={style.MessageDiv}>
-					<Messages username={username} />
+					<Messages username={username} endDiv={endDiv} />
 				</div>
 			</div>
 			<div className={style.SendMessageDiv}>
-				<SendMessage username={username} image={image} />
+				<SendMessage username={username} image={image} endDiv={endDiv} />
 			</div>
 		</div>
 	);

@@ -1,3 +1,22 @@
+@media only screen and (max-width: 1024px) {
+	.MainDiv {
+		display: flex;
+		flex-direction: row;
+	}
+	.MessageDiv {
+		margin-left: 50px;
+		flex: 2 0 0;
+	}
+	.SendMessageDiv {
+		margin-top: 20px;
+		flex: 2 0 0;
+	}
+	.avatar {
+		width: 30px;
+		border-radius: 50px;
+		padding-right: 5px;
+	}
+}
 @media only screen and (min-width: 1024px) {
 	.MainDiv {
 		display: flex;
@@ -18,12 +37,12 @@
 	}
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 	.MainDiv {
 		display: block;
 	}
 	.MessageDiv {
-		flex: 2 0 0;
+		width: 100%;
 	}
 	.avatar {
 		width: 30px;
