@@ -5,11 +5,14 @@
 	"main": "server.js",
 	"scripts": {
 		"startDev": "nodemon server.js",
-		"start": "node server.js"
+		"start": "node server.js",
+		"test": "jest",
+		"document": "jsdoc -c jsdoc.conf"
 	},
 	"license": "MIT",
 	"dependencies": {
 		"body-parser": "^1.19.0",
+		"clean-jsdoc-theme": "^2.2.14",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
 		"formidable": "^1.2.2",
