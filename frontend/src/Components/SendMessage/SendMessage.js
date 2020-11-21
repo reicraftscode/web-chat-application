@@ -7,7 +7,7 @@ import axios from "axios";
 
 const CREATE_MESSAGE_ENDPOINT = "http://localhost:3000/message/create";
 
-const SendMessage = ({ username, image }) => {
+const SendMessage = ({ username, image, endDiv }) => {
 	const history = useHistory();
 	const [message, setMessage] = useState("");
 	const [retainImage, setRetainImage] = useState({});
@@ -41,9 +41,14 @@ const SendMessage = ({ username, image }) => {
 				const res = await axios.post(CREATE_MESSAGE_ENDPOINT, formData);
 				console.log(res);
 			};
-			insertMessage();
 			socketRef.current.emit("message", data);
 			setMessage("");
+			insertMessage();
+			if (!endDiv.current) {
+				return;
+			} else {
+				endDiv.current.scrollIntoView({ behavior: "smooth", block: "start" });
+			}
 		}
 	};
 	const handleMessageText = (e) => {
