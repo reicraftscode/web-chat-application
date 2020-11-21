@@ -92,11 +92,11 @@ const io = require("socket.io")(http, {
  * @function
  * @returns {string} mongoose connected or error
  */
-const testConnection = require("./mongoose/config");
+const { testConnection } = require("./mongoose/config");
 /**
  * @description access mongodb connection
  */
-const connection = require("./mongoose/config");
+const { connection } = require("./mongoose/config");
 /**
  * @description access mongodb user model to handle data
  */
