@@ -61,15 +61,8 @@ const Messages = ({ username, endDiv }) => {
 	const handleMouseOut = () => {
 		setShown(false);
 	};
-	const handleMouseEnterDiv = () => {
-		if (!endDiv.current) {
-			return;
-		} else {
-			endDiv.current.scrollIntoView({ behavior: "smooth", block: "start" });
-		}
-	};
 	return (
-		<div className={style.MainDiv} onMouseEnter={handleMouseEnterDiv()}>
+		<div className={style.MainDiv}>
 			<h3 className="font-weight-bold">Chat Messages</h3>
 			<div
 				id="messagetext"
