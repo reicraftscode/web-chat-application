@@ -14,15 +14,23 @@ Navigate/cd to frontend and do npm install.
 
 Start a terminal in the main/root folder then you can get started with commands.
 
-### npm start (root)
+### `npm run start` (root)
 
 Frontend and Backend are managed to run concurrently using pm2 all you have to do is go to the root directory and invoke npm start.
 
-### npm start (backend)
+### `npm run build` (root)
+
+Builds frontend into static
+
+### `npm run prod` (root)
+
+Builds production app
+
+### `npm run start` (backend)
 
 Backend can run separately using this command.
 
-### npm test (backend)
+### `npm run test` (backend)
 
 Backend can run separately using this command.
 
@@ -30,30 +38,30 @@ Backend can run separately using this command.
 
 Launches the server in normal mode (does not auto reload).
 
-### npm startDev (backend)
+### `npm run startDev` (backend)
 
 Backend can run separately using this command with hot reload.
 
-### npm start (frontend)
+### `npm run start` (frontend)
 
 Frontend will run on port 3001 if it did not work use fallback scripts.
 
-### npm startLinux (frontend)
+### `npm run startLinux` (frontend)
 
 Frontend will run on port 3001 if you are using linux and the normal start did not work. Use this.
 
-### npm startWindows (frontend)
+### `npm run startWindows` (frontend)
 
 Frontend will run on port 3001 if you are using windows and the normal start did not work. use this.
 
-### npm run build
+### `npm run build` (frontend)
 
 You can build it then use the combination of
 
     npm install -g serve
     serve -s build
 
-### npm run test(frontend)
+### `npm run test` (frontend)
 
 Run command to verify if things render well (make sure to run the backend while testing)
 
