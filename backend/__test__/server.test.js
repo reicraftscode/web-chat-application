@@ -4,18 +4,6 @@ const { app, http } = require("../server");
 const path = require("path");
 const timeout = 100000;
 
-describe("Check if sockets do connect", () => {
-	it("connects to socket", () => {
-		function connect() {
-			io.emit("login", { username: "test" });
-			io.on("connection", (socket) => {
-				console.log(socket.id);
-			});
-		}
-		connect();
-	});
-});
-
 describe("Server Endpoints", () => {
 	it("should get usercount data", async () => {
 		jest.setTimeout(timeout);
