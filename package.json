@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "concurrently \"cd backend && node server.js\" \"cd frontend && npm start\"",
-		"test": "concurrently \"cd backend && npm test\" \"cd frontend && npm test\""
+		"build": "concurrently \"cd frontend && npm build\" \"cd backend && npm start\"",
+		"prod": "concurrently \"cd backend && node server.js\" \"cd frontend && serve -s build -p 3001\""
 	},
 	"dependencies": {
 		"concurrently": "^5.3.0"
