@@ -25,22 +25,79 @@
 		margin-left: 15px;
 	}
 }
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1024px) {
 	.messagesContainer {
-		border-style: solid;
+		height: 250px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		position: relative;
 	}
 	.messageOwner {
-		border-style: solid;
+		background-color: #ffffff;
+		width: 55%;
+		margin-top: 15px;
+		display: flex;
+		padding: 10px;
 	}
 	.messageReceiver {
-		border-style: solid;
-		margin-left: 400px;
-		text-align: right;
-		color: red;
+		margin-left: 55%;
+		background-color: #ffffff;
+		width: 55%;
+		margin-top: 15px;
+		display: flex;
+		padding: 10px;
 	}
 	.avatar {
 		width: 50px;
+		margin-left: 15px;
+	}
+}
+@media only screen and (max-width: 800px) {
+	.messagesContainer {
+		height: 250px;
+		overflow-y: scroll;
+	}
+	.messageOwner {
+		background-color: #ffffff;
+		width: 100%;
+		margin-top: 5px;
+		display: flex;
+		padding: 10px;
+	}
+	.messageReceiver {
+		background-color: #ffffff;
+		width: 100%;
+		margin-top: 5px;
+		display: flex;
+		padding: 10px;
+	}
+	.avatar {
+		width: 100px;
+		margin-left: 15px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.messagesContainer {
+		height: 250px;
+		overflow-y: scroll;
+	}
+	.messageOwner {
+		background-color: #ffffff;
+		width: 100%;
+		margin-top: 5px;
+		display: flex;
+		padding: 10px;
+	}
+	.messageReceiver {
+		background-color: #ffffff;
+		width: 100%;
+		margin-top: 5px;
+		display: flex;
+		padding: 10px;
+	}
+	.avatar {
+		width: 100px;
 		margin-left: 15px;
 	}
 }
