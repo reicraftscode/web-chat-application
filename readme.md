@@ -1,5 +1,7 @@
 ## Chatbee
 
+## Motivation 
+
 ## Installation
 Clone the project with the following HTTPS: https://git.cardiff.ac.uk/c1623793/web-chat-project-main.git \
 or \
@@ -131,3 +133,9 @@ Node Package Manager
 [Supertest](https://www.npmjs.com/package/supertest) - HTTP assertions made easy via superagent.
 NodeJS, Node Package Manager
 
+## Acknowledgment 
+
+ChatBee name - https://namelix.com/
+ChatBee Theme Inspiration - https://coolors.co/
+Bee Logo Icon - https://www.flaticon.com/
+Chat bee exit image - https://undraw.co/
