@@ -1,8 +1,8 @@
 ## Chatbee
 
 ## Installation
-Clone with the following HTTPS: https://git.cardiff.ac.uk/c1623793/web-chat-project-main.git
-or
+Clone the project with the following HTTPS: https://git.cardiff.ac.uk/c1623793/web-chat-project-main.git \
+or \
 Download and unzip ChatBee from the following GIT repository link. 
 ## Getting Started
 These instructions will help you get a fresh copy of the project and run it on the local machine for development and testing purposes.
