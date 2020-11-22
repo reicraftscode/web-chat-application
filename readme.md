@@ -1,114 +1,132 @@
-# ChatBee
+## Chatbee
+Chatbee is a real time application that allows you to communicate and to have fun with another.
+## Getting Started
+These instructions will help you get a fresh copy of the project and run it on the local machine for development and testing purposes.
+Prerequisites
 
-ChatBee is a React web application that runs alongside with nodejs concurrently, it uses pm2 to run both of the frontend and backend as well as manage it entirely.
+The things that you need to run the code are:
 
-## Installation
+```sh
+Visual Studio IDE
+Node Package Manager (npm)
+NodeJs
+Internet
+```
 
-Download-zip or clone: https://github.com/c1623793/web-chat-project-main.
+## Running
+These are the step by step instructions that will tell you how to get the app running for development and testing as well as production. All dependencies must be installed in order for the software to work correctly, navigate to **main/root**, **frontend**, and **backend** and use the command below on project terminal.
 
-Navigate/cd to main/root and do npm install.
-Navigate/cd to backend and do npm install.
-Navigate/cd to frontend and do npm install.
+```sh
+$ npm install
+```
 
-## Scripts
+Once installation is complete, you can now run the chatbee web project in a separated manner. This was designed to support running separately to be ready for separate deployments. Especially if you have separate hosting for the frontend and backend.
 
-Start a terminal in the main/root folder then you can get started with commands.
 
-### `npm run start` (root)
+```sh
+cd frontend
+$ npm run start
+```
 
-Frontend and Backend are managed to run concurrently using pm2 all you have to do is go to the root directory and invoke npm start.
+```sh
+cd backend
+$ npm run start
+```
 
-### `npm run build` (root)
+It can also run by navigating to the root of the project and then run it from there.
+npm run start
+Or
 
-Builds frontend into static
+```sh
+$ npm run build && npm run prod
+```
 
-### `npm run prod` (root)
+The application is using a cloud hosted database for simplicity as well as for compatibility reasons. However, you can reconfigure things at the backend if you wanted it to connect through a different instance of the database.
+The frontend application will be hosted on the port **3001** so make sure to free that port to allow the frontend to run. The backend will run on port **3000** so make sure to free the port to avoid problems on running it there.
 
-Builds production app
+To use the web application, you need to open up a browser (preferably google chrome) and navigate to **http://localhost:3001** and open up 2 tabs to simulate a conversation. The user must also need to be online since the database is hosted in the cloud and some functions will not work properly. Alternatively, you can reconfigure things on the backend to set an offline instance of mongodb if you have one.
+The landing page should be the first thing to show up; you should see the Chatbee interface. You should see a welcome greeting. Upon visiting, you are automatically assigned a username for you to use. You can also see the number of registered users as well as number of messages sent. You can also upload a picture optionally. Once that you clicked enter the hive button, you will see the actual chat application. On the left side will be the active users and on the middle would be the actual chat box. You can type and chat in what you want to say in the message box and you can press enter key or just click submit button.You can see your own messages on the left side and other user’s will go to the right side, If you also hover you can see the timestamp when the message was sent. You can click disconnect after you are done connecting to it. Upon clicking an alert box will show that you are disconnected and then redirect you to the exit page.
 
-### `npm run start` (backend)
 
-Backend can run separately using this command.
+## Project Creation Methods
+The frontend was powered with CRA or create-react-app, bootstrap 4, node-sass and socket.io-client. The default option was set as an option when create-react-app was initialized and the dependencies were added afterwards. Bootstrap 4 was added to make use of predefined design classes to speed things up in the designing stage. SCSS was used even when node-sass was installed to override the bootstrap actual class as well as make use of variables in the stylesheets. Socket.io-client was used to communicate with the backend real-time.
+The backend was powered by express and is manually made from scratch. Body parser was added to support multiple types of data when handling requests, cors to allow requests from react app to work, formidable was added do parse forms and get data from it. Mongoose to handle all the database logic. Nodemon for the purpose of hot reload when developing and socket.io to handle real-time data.
 
-### `npm run test` (backend)
 
-Backend can run separately using this command.
+## Major Choices
+### Language
+The main language that is used in this project is Javascript. Javascript was used since it is very compatible to use with the frontend as well as backend, it is also fast, reliable and easy to use compared to other languages such as php, you can check a detailed explanation in hackernoon’s website here. Javascript also has a wide set of tools that is evident in the project. You can also check your code with the built in linter in create-react-app but also you can test,deploy and run the webapp without going out of javascript.
 
-### `npm run document` (backend)
+### Style
+The style that was enforced in this project is simple, Bootstrap is the most popular and a powerful framework that has been used by many companies for years. It helps developers get styles that they want right away by just adding css classes on the markup and in this case the javascript xml.
+To support multiple screen sizes, media queries are used in a way that the minimum screen will show a particular style compared to bigger screen sizes.
+Scss or sass css was used to overwrite some bootstrap variables such as colors etc. It is also used to simplify things a bit and allow us to use variables inside stylesheets. Compared to plain css it is more extensive and can support big projects if the project will be extended into a bigger scale.
 
-Launches the server in normal mode (does not auto reload).
 
-### `npm run startDev` (backend)
+### State Management
+The first thing that comes to mind when it comes to state management was to use Redux, a tool to help you do some state management. However, after some careful planning it was realized that the project only needs a simple yet effective way of storing state in order for the webapp to handle the flow of data such as arrays, booleans, and strings to be displayed on the frontend so Redux was a no go.
+React hooks was the one that is the right fit for the job. A modern way to manage states in a simple manner by using functions instead of classes.It simplifies code and to the point that the lines of code are shorter and it is not only shorter and cleaner. The react team also advised to use hooks for new projects just like chatbee. You see the official hooks frequently asked questions page in here.
+If the project will be extended into a wider scale, The use of react context API is very recommended since it can cater state management globally in a simple way.
 
-Backend can run separately using this command with hot reload.
 
-### `npm run start` (frontend)
+### Code Style
+The client was configured to follow the default code style that was enforced by the built-in eslint. The create-react-app (CRA) checks the code whether react conventions was met or not. As the development progresses, the code was actually checked as you type the code and give you warnings whenever you failed to meet the code style. A good example for this is that when you declare an image tag but you failed to declare an alt attribute a warning will show up that you needed to add an alt attribute to fix this error and so on. As the official create-react-app (CRA) documentation said it is not advisable to use eslint config to enforce code style and instead use prettier which made the code cleaner and indented. You can read more in here.
 
-Frontend will run on port 3001 if it did not work use fallback scripts.
+### Database
+The app needed to persist messages as well as users so the main thing that comes to mind in terms of simplicity was mongodb, it can handle data insertion and manipulation easily. Compared to relational databases, NoSql approach was done in this project since we are only inserting and retrieving data.
 
-### `npm run startLinux` (frontend)
+## Testing
+### Client
+The default react testing library was used in this project to test if things are working fine in the client side. The test that was implemented in this project was simple and minimalistic since it only checks if pages are rendering fine. All of the data that will be shown in the client however will be validated in the server.
 
-Frontend will run on port 3001 if you are using linux and the normal start did not work. Use this.
+### Server
+The servers will use jest to test specific API endpoints.It will cover basic test cases such as simulating a proper API call, simulating failed API call etc. The thing with test cases is that it can help to see the errors sooner by automating API calls, invoking functions, doing some data handling, and based on the results you can conclude if the software is running properly or not. Tests expects some sort of results from the software and based on that if things match then tests will pass. However, if things are not working fine and well and return another value instead of expected value things will be considered as fail.
 
-### `npm run startWindows` (frontend)
 
-Frontend will run on port 3001 if you are using windows and the normal start did not work. use this.
+## Assumptions Made
+- Web Application will run in a decent server.
+- Users will only send short messages.
+- Users Will only upload valid avatars.
 
-### `npm run build` (frontend)
+## Mocked Aspects
+- The username generator is a mock for a login.
 
-You can build it then use the combination of
+## Paradigms Used
 
-    npm install -g serve
-    serve -s build
+### Event-Driven
+This paradigm was used since we do have socket.io and asynchronous API calls. Both Express and React uses socket.io which transmits data back and forth by listening and emitting.
 
-### `npm run test` (frontend)
+### Imperative
+This paradigm was used to explicitly update the state by triggering useEffect hook in react frontend. This is also evident in the backend when the API has received the data and will trigger a response and then update the state of the application based on the response.
 
-Run command to verify if things render well (make sure to run the backend while testing)
+### Declarative
+This paradigm was used since there was a button click function in the webapp that explicitly tells the state to change into the desired state. For example, a button click will change the state to true.
 
-## Justification
+### Functional
+The components are made by using functional methods (functional components). Even the backend functions are also made to help achieve results.
 
-### Create-react-app:
+## Built With
 
-I used Create-React-App to get starting fast since it set things up automatically, you can worry less about setting things up and build instead. This frontend framework is very useful especially if you wanted to do many frontend logic as well as make things reactive. You can really rely on react. This framework makes your code cleaner, organized, as well as readable.
+**React** – a modern web app library used to build the frontend.
+Bootstrap - Sleek, intuitive, and powerful front-end framework for faster and easier web development.
+Axios - Promise based HTTP client for the browser and node.js
+Node-sass - Node-sass is a library that provides binding for Node.js to LibSass, the C version of the popular stylesheet preprocessor, Sass
+Socket.io-client – socket.io for frontend
+React testing library - Simple and complete React DOM testing utilities that encourage good testing practices.
+NodeJS
+Node Package Manager
 
-The project structure that I had adopted is just simple. However, If I will be doing a large scale web app I will prefer to use an architecture such as ducks architecture. Since this project has a small scope, I just kept it simple and avoided over engineering.
+**Express** - Fast, unopinionated, minimalist web framework for node.
+Body Parser - Node.js body parsing middleware.
+Cors - CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+Formidable - A Node.js module for parsing form data, especially file uploads.
+Mongoose - Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose supports both promises and callbacks.
+Socket.io - Socket.IO enables real-time bidirectional event-based communication.
+Clean Jsdoc theme - A beautifully crafted theme/template for JSDoc 3. This theme/template looks and feels like a premium theme/template. This is a fully mobile responsive theme and also fully customizable theme
+Jsdoc - An API documentation generator for JavaScript.
+Jsdoc http plugin - This project is a fork of https://github.com/bvanderlaan/jsdoc-route-plugin Currently, bvanderlaan doesn't seems to be available to maintain the project so i'll continue here.
+Morgan - HTTP request logger middleware for node.js
+Rotating file stream - Opens a stream.Writable to a file rotated by interval and/or size. A logrotate alternative.
+Supertest - HTTP assertions made easy via superagent.
+NodeJS, Node Package Manager
 
-### Express,Socket.io,Axios,Formidable and Websocket:
-
-The main thing that I like about express is that I can make an API get started within a few minutes, it will be used to persist data and will act as a bridge of communication from backend to frontend.
-
-Socket.io will be used for real-time communication such as chatting and collaborating that is why this chat app is using socket.io.
-
-Axios will be used to call API to POST and GET data from the backend to display in the frontend and then update things depending on the components. Axios is also much cleaner than fetch and xhr requests.
-
-Formidable will be responsible for handling form data and pass files from both the frontend and backend. In that way it will store things in the folder and stores the directory link for the app to consume.
-
-### Image Avatar:
-
-Avatar will be move into a folder once it is uploaded and in there, react will access it.
-
-### Tests:
-
-I just did a simple validation using react testing library to see if things do render as expected. The testing library tries to simulate rendering which is good since I had seen some possible problems along the way when I tested things out.
-
-1. The React Testing Library is a very light-weight solution for testing React components. It provides light utility functions on top of react-dom and react-dom/test-utils, in a way that encourages better testing practices.
-
-2. So rather than dealing with instances of rendered React components, your tests will work with actual DOM nodes. The utilities this library provides facilitate querying the DOM in the same way the user would. Finding form elements by their label text (just like a user would), finding links and buttons from their text (like a user would). It also exposes a recommended way to find elements by a data-testid as an "escape hatch" for elements where the text content and label do not make sense or is not practical. https://testing-library.com/docs/react-testing-library/intro/
-
-### Paradigms
-
-I made an event driven paradign of coding as well as stateful technique when I did the app. I made sure that code splitting will be efficient as well as readable. Variables are easy to understand. Socket.io is event driven and that means that socket.io can both emit and listed at the same time.
-
-In persisting things right inside our repository, things was kind of tricky but I still made it on socket emit save to database then reload on enter, also I did use SCSS since it was kind of also importat especially we can use it in a game or w
-
-My components do not rely on other's to have a certain state or propoerty, but instead react upon one another's state or data to influence their own properties.
-
-Linter or the coding conventions are mandated by jsdoc which makes it easier for us to do avoid bugs on code by enforcing coding conventions.
-
-### Styling
-
-I used React-bootstrap and scss to style things differently asd well as conditional rendering. Scss variables are so good to the point that you can override boostrap itself.
-
-## License
-
-[MIT License]
