@@ -65,7 +65,7 @@ The backend was powered by express and is manually made from scratch. Body parse
 
 ## Major Choices
 ### Language
-The main language that is used in this project is Javascript. Javascript was used since it is very compatible to use with the frontend as well as backend, it is also fast, reliable and easy to use compared to other languages such as php, you can check a detailed explanation in hackernoon’s website here. Javascript also has a wide set of tools that is evident in the project. You can also check your code with the built in linter in create-react-app but also you can test,deploy and run the webapp without going out of javascript.
+The main language that is used in this project is Javascript. Javascript was used since it is very compatible to use with the frontend as well as backend. Javascript also has a wide set of tools that is evident in the project. You can also check your code with the built in linter in create-react-app but also you can test,deploy and run the webapp without going out of javascript.
 
 ### Style
 The style that was enforced in this project is simple, Bootstrap is the most popular and a powerful framework that has been used by many companies for years. It helps developers get styles that they want right away by just adding css classes on the markup and in this case the javascript xml.
