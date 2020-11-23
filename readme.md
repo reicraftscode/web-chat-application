@@ -1,4 +1,5 @@
-## Chatbee
+# Chatbee
+ChatBee is a real time web application that runs alongside with nodejs concurrently. 
 
 ## Getting Started
 
