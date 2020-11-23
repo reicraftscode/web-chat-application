@@ -1,12 +1,11 @@
 ## Chatbee
 
-## Motivation 
+## Getting Started
 
-## Installation
+### Installation
 Clone the project with the following HTTPS: https://git.cardiff.ac.uk/c1623793/web-chat-project-main.git \
 or \
 Download and unzip ChatBee from the following GIT repository link. 
-## Getting Started
 
 ### Prerequisites
 
@@ -55,15 +54,7 @@ The frontend application will be hosted on the port **3001** so make sure to fre
 
 To use the web application, you need to open up a browser (preferably google chrome) and navigate to **http://localhost:3001** and open up 2 tabs to simulate a conversation. The user must also need to be online since the database is hosted in the cloud and some functions will not work properly. Alternatively, you can reconfigure things on the backend to set an offline instance of mongodb if you have one. \
 
-The landing page should be the first thing to shows up which is the ChatBee main interface.  You should also see a welcome greeting. Upon visiting, you are automatically assigned a username for you to use, the number of registered users and the number of messages sent can also be seen. Additionally, there is an option where you can upload a picture for your profile. Once you clicked "enter the hive button", you will see the actual chat application. The left side of the chat page contains the list of active users. The middle section of the page contains the chat box, where you can input messages in the message box. Once entered or once the "submit" button is clicked, the message will be sent and can be seen by other users messages in the chat. You can see your own messages on the left side and other user’s will go to the right side. When you hover the mouse cursor over any messages sent, you will be able to see the timestamp of each messages sent.Clicking "disconnect" will cause an alert box to pop-up stating that you have been disconnected from the chat, then redirect you to the exit page.
-
-## Assumptions Made
-- Web Application will run in a decent server.
-- Users will only send short messages.
-- Users Will only upload valid avatars.
-
-## Mocked Aspects
-- The username generator is a mock for a login.
+The landing page should be the first thing to shows up which is the ChatBee main interface.  You should also see a welcome greeting. Upon visiting, you are automatically assigned a username for you to use, the number of registered users and the number of messages sent can also be seen. Additionally, there is an option where you can upload a picture for your profile. Once you clicked "enter the hive button", you will see the actual chat application. The left side of the chat page contains the list of active users. The middle section of the page contains the chat box, where you can input messages in the message box. Once entered or once the "submit" button is clicked, the message will be sent and can be seen by other users messages in the chat. You can see your own messages on the left side and other user’s will go to the right side. When you hover the mouse cursor over any messages sent, you will be able to see the timestamp of each messages sent. Clicking "disconnect" will cause an alert box to pop-up stating that you have been disconnected from the chat, then redirect you to the exit page.
 
 ## Project Creation Methods
 The frontend was powered by CRA or create-react-app, bootstrap 4, node-sass and socket.io-client. The default option was set as an option when create-react-app was initialized and the dependencies were added afterwards. Bootstrap 4 was added to make use of predefined design classes to speed things up in the designing stage. SCSS was used even when node-sass was installed to override the bootstrap actual class as well as make use of variables in the stylesheets. Socket.io-client was used to communicate with the backend real-time.
@@ -101,6 +92,16 @@ The default react testing library was used in this project to test if things are
 ### Server
 The servers will use jest to test specific API endpoints.It will cover basic test cases such as simulating a proper API call, simulating failed API call etc. Test cases is that it can help see the errors sooner by automating API calls, invoking functions, doing some data handling, and based on the results, you can conclude if the software is running properly or not. Tests expects some sort of results from the software, and based on that if things match, then tests will pass. However, if things are not working fine and well and return another value instead of expected value, things will be considered as fail.
 
+## Assumptions Made
+- Web Application will run in a decent server.
+- Users will only send short messages.
+- Users will only upload small-medium size valid avatars preferrably like size of an icon (48 x 48 pixels).
+- Random avatar generated as default if the user does not want upload an avatar.
+- Current active users, timestamp of when the message has been sent to track of the status of user interaction and collaboration.
+
+## Mocked Aspects
+- The username generator is a mock for a login.
+
 ## Paradigms Used
 
 ### Event-Driven
@@ -113,7 +114,7 @@ This paradigm was used to explicitly update the state by triggering useEffect ho
 This paradigm was used as there was a button click function in the webapp that explicitly tells the state to change into the desired state. For example, a button click will change the state to true.
 
 ### Functional
-The components are made by using functional methods (functional components). Even the backend functions are also made to help achieve results.
+The components were made by using functional methods (functional components). Even the backend functions were also made to help achieve results.
 
 ## Built With
 
@@ -141,8 +142,10 @@ Node Package Manager
 NodeJS, Node Package Manager
 
 ## Acknowledgment 
+The idea of ChatBee was inspired by Bee Movie where bees gathered inside the beehive to chit-chat. Therefore, I thought of beehive as a "room" and the users are like the bees. 
 
-ChatBee name - https://namelix.com/
-ChatBee Theme Inspiration - https://coolors.co/
-Bee Logo Icon - https://www.flaticon.com/
-Chat bee exit image - https://undraw.co/
+#### Theme
+[Coolors](https://coolors.co/)helped me to achieve a user-friendly theme for my web application. The name came from [Namelix](https://namelix.com/).
+
+### Logo and image
+The Bee logo used in the header of the app came from [Flaticon](https://www.flaticon.com/) in SVG format. It is scalable, transparent, easy, and fast for browsers to render them. Lastly, the image I got for the exit page came from [Undraw](https://undraw.co/search).
