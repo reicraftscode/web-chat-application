@@ -1,12 +1,13 @@
-# Chatbee
-ChatBee is a real time web application that runs alongside with nodejs concurrently. 
+# ActiveBee
+
+ActiveBee is a real time web application that runs alongside with nodejs concurrently. 
 
 ## Getting Started
 
 ### Installation
 Clone the project with the following HTTPS: https://git.cardiff.ac.uk/c1623793/web-chat-project-main.git \
 or \
-Download and unzip ChatBee code source. 
+Download and unzip ActiveBee code source. 
 
 ### Prerequisites
 
@@ -19,14 +20,14 @@ NodeJs
 Internet
 ```
 
-## Running ChatBee Application
+## Running ActiveBee Application
 Below is the step-by-step guide on how to get the app running for development, testing, and production. Use the command below to install all dependencies in order for the software to work correctly, navigate **frontend**, **backend**, lastly the **main/root**.
 
 ```sh
 $ npm install
 ```
 
-Once installation is complete, you can now run the chatbee web project in a separated manner. This was designed to support running separately to be ready for separate deployments, especially if you have separate hosting for the frontend and backend.
+Once installation is complete, you can now run the ActiveBee web project in a separated manner. This was designed to support running separately to be ready for separate deployments, especially if you have separate hosting for the frontend and backend.
 
 
 ```sh
@@ -55,7 +56,7 @@ The frontend application will be hosted on the port **3001** so make sure to fre
 
 To use the web application, you need to open up a browser (preferably google chrome) and navigate to **http://localhost:3001** and open up 2 tabs to simulate a conversation. The user must also need to be online since the database is hosted in the cloud and some functions will not work properly. Alternatively, you can reconfigure things on the backend to set an offline instance of mongodb if you have one. 
 
-The landing page should be the first thing to shows up which is the ChatBee main interface.  You should also see a welcome greeting. Upon visiting, you are automatically assigned a username for you to use, the number of registered users and the number of messages sent can also be seen. Additionally, there is an option where you can upload a picture for your profile. Once you clicked "enter the hive button", you will see the actual chat application. The left side of the chat page contains the list of active users. The middle section of the page contains the chat box, where you can input messages in the message box. Once entered or once the "submit" button is clicked, the message will be sent and can be seen by other users messages in the chat. You can see your own messages on the left side and other user’s will go to the right side. When you hover the mouse cursor over any messages sent, you will be able to see the timestamp of each messages sent. Clicking "disconnect" will cause an alert box to pop-up stating that you have been disconnected from the chat, then redirect you to the exit page.
+The landing page should be the first thing to shows up which is the ActiveBee main interface.  You should also see a welcome greeting. Upon visiting, you are automatically assigned a username for you to use, the number of registered users and the number of messages sent can also be seen. Additionally, there is an option where you can upload a picture for your profile. Once you clicked "enter the hive button", you will see the actual chat application. The left side of the chat page contains the list of active users. The middle section of the page contains the chat box, where you can input messages in the message box. Once entered or once the "submit" button is clicked, the message will be sent and can be seen by other users messages in the chat. You can see your own messages on the left side and other user’s will go to the right side. When you hover the mouse cursor over any messages sent, you will be able to see the timestamp of each messages sent. Clicking "disconnect" will cause an alert box to pop-up stating that you have been disconnected from the chat, then redirect you to the exit page.
 
 ## Project Creation Methods
 The frontend was powered by CRA or create-react-app, bootstrap 4, node-sass and socket.io-client. The default option was set as an option when create-react-app was initialized and the dependencies were added afterwards. Bootstrap 4 was added to make use of predefined design classes to speed things up in the designing stage. SCSS was used even when node-sass was installed to override the bootstrap actual class as well as make use of variables in the stylesheets. Socket.io-client was used to communicate with the backend real-time.
@@ -76,7 +77,7 @@ Scss or sass css was used to overwrite some bootstrap variables such as colors e
 ### State Management
 The first thing that comes to mind when it comes to state management was to use Redux. However, after some careful planning it was realized that the project only needed a simple yet effective way of storing state in order for the webapp to handle the flow of data such as arrays, booleans, and strings to be displayed on the frontend therefore, Redux was a no go. 
 
-I came up with React Hooks which was the one that is the right fit for the job. It is a modern way to manage states in a simple manner by using functions instead of classes.It simplifies code to the point that the lines of code are shorter and cleaner. The react team also advised to use hooks for new projects just like Chatbee. You see the official hooks frequently asked questions page in [here](https://reactjs.org/docs/hooks-faq.html).
+I came up with React Hooks which was the one that is the right fit for the job. It is a modern way to manage states in a simple manner by using functions instead of classes.It simplifies code to the point that the lines of code are shorter and cleaner. The react team also advised to use hooks for new projects just like ActiveBee. You see the official hooks frequently asked questions page in [here](https://reactjs.org/docs/hooks-faq.html).
 If the project was to be extended into a wider scale, The use of react context API is recommended since it can cater state management globally in a simple way.
 
 
@@ -143,7 +144,7 @@ The components were made by using functional methods (functional components). Ev
 NodeJS, Node Package Manager
 
 ## Acknowledgment 
-The idea of ChatBee was inspired by Bee Movie where bees gathered inside the beehive to chit-chat. Therefore, I thought of beehive as a "room" and the users are like the bees. 
+The idea of ActiveBee was inspired by Bee Movie where bees gathered inside the beehive to chit-chat. Therefore, I thought of beehive as a "room" and the users are like the bees. 
 
 #### Theme
 [Coolors](https://coolors.co/) helped me to achieve a user-friendly theme for my web application. The name came from [Namelix](https://namelix.com/).
