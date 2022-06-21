@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
  * @description variable for mongoose
  */
 const MONGO_URI =
-	"mongodb+srv://admin:admin@cluster0.yiwgy.mongodb.net/chatbee?retryWrites=true&w=majority";
+	"mongodb+srv://admin:adminpassword01@cluster0.ipmfe.mongodb.net/chatbee?retryWrites=true&w=majority";
 
 /**
  * @description connect to mongoose
