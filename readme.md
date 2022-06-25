@@ -151,3 +151,9 @@ The idea of ActiveBee was inspired by Bee Movie where bees gathered inside the b
 
 ### Logo and image
 The Bee logo used in the header of the app came from [Flaticon](https://www.flaticon.com/) in SVG format. It is scalable, transparent, easy, and fast for browsers to render them. Lastly, the image I got for the exit page came from [Undraw](https://undraw.co/search).
+
+
+## Authors
+- [@reicraftscodes](https://www.github.com/reicraftscodes)
+
+
