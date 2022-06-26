@@ -5,7 +5,7 @@ ActiveBee is a real time web application that runs alongside with nodejs concurr
 ## Getting Started
 
 ### Installation
-Clone the project with the following HTTPS: https://git.cardiff.ac.uk/c1623793/web-chat-project-main.git \
+Clone the project with the following HTTPS: https://github.com/reicraftscodes/web-chat-application \
 or \
 Download and unzip ActiveBee code source. 
 
